@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors = new ArrayList<>();;
+    private String title;
+    private int duration;
+    private Director director;
+    private ArrayList<Actor> listOfActors = new ArrayList<>();;
 
     public Show(String title, int duration, Director director) {
         this.title = title;
@@ -12,9 +12,40 @@ public class Show {
         this.director = director;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public ArrayList<Actor> getListOfActors() {
+        return listOfActors;
+    }
+
+    public void setListOfActors(ArrayList<Actor> listOfActors) {
+        this.listOfActors = listOfActors;
+    }
+
     public void printDirector() { //Печать директора
         System.out.println(director);
-        return;
     }
 
     public void printListOfActors() { //Печать актеров
@@ -22,7 +53,6 @@ public class Show {
         for (Actor actor : listOfActors) {
             System.out.println(actor);
         }
-        return;
     }
 
     public void newActor(Actor newActor) { //Добавление актера
@@ -37,14 +67,13 @@ public class Show {
             return;
         }
         listOfActors.add(newActor);
-        return;
     }
 
-    public void changeActor(Actor oldActor, Actor newActor) { //Замена актера
+    public void changeActor(String oldActor, Actor newActor) { //Замена актера
         if (!listOfActors.isEmpty()) {
             for (Actor actor : listOfActors) {
-                if (actor.equals(oldActor)) {
-                    listOfActors.remove(oldActor);
+                if (actor.getSurname().equals(oldActor)) {
+                    listOfActors.remove(actor);
                     listOfActors.add(newActor);
                     System.out.println("Актер " + actor + " был заменён на " + newActor);
                     return;
@@ -54,7 +83,6 @@ public class Show {
             return;
         }
         System.out.println("Список пуст чтоб менять актеров");
-        return;
     }
 
 }

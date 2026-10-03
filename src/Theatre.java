@@ -8,9 +8,12 @@ public class Theatre {
         Director director1 = new Director("Уилсон", "Персиваль", Gender.MALE, 2);
         Director director2 = new Director("Алекс", "Вэнс", Gender.FEMALE, 3);
 
-        MusicalShow musicalShow = new MusicalShow("хз", 180, director1, "Чепуха", "fffffffffff");
-        Opera opera = new Opera("хзхз", 145, director1, "Ерунда", "llllllll", 50);
-        Ballet ballet = new Ballet("хзз", 120, director2, "Е", "jjjjj", "вдвд");
+        Person musicAuthor = new Person("Антон", "Верщагин", Gender.MALE);
+        Person choreographer = new Person("Лидия", "Ветрова", Gender.FEMALE);
+
+        MusicalShow musicalShow = new MusicalShow("Спектакль", 180, director1, musicAuthor, "Либретто текст спектакля");
+        Opera opera = new Opera("Опера", 145, director1, musicAuthor, "Либретто текст оперы", 50);
+        Ballet ballet = new Ballet("Балет", 120, director2, musicAuthor, "Либретто текст балета", choreographer);
 
         musicalShow.newActor(actor1);
         musicalShow.newActor(actor2);
@@ -25,10 +28,10 @@ public class Theatre {
         opera.printListOfActors();
         ballet.printListOfActors();
 
-        opera.changeActor(actor3, actor2);
+        opera.changeActor("Боровски", actor2);
         opera.printListOfActors();
 
-        opera.changeActor(actor1, actor3);
+        opera.changeActor("Бобков", actor3);
 
         opera.printLibrettoText();
     }

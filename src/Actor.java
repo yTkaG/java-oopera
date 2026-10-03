@@ -1,16 +1,24 @@
 import java.util.Objects;
 
 public class Actor extends Person {
-    double height;
+    private double height;
 
     public Actor(String name, String surname, Gender gender, double height) {
         super(name, surname, gender);
         this.height = height;
     }
 
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
     @Override
     public String toString() {
-        return name + " " + surname + " (рост: " + height + ")";
+        return getName() + " " + getSurname() + " (рост: " + height + " метров)";
     }
 
     @Override
